@@ -1,14 +1,40 @@
-h1  {
-    color:pink;
-}
 body {
-    background-color: black;
+    background-color: #1a1a1a;
+    color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    border: 1px solid aliceblue;
+    max-width: 900px;
+    max-height: 800px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    color: #ff69b4;
+    margin: 20px auto;
 }
 
 p {
-    color:aliceblue;
+    color: aliceblue;
+    margin: 10px auto;
 }
 
 ul {
-    color:antiquewhite;
+    color: antiquewhite;
+    list-style-position: inside;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+    text-align: left;
 }
