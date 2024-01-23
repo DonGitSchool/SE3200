@@ -1,0 +1,10 @@
+body {
+    padding: 40px;
+    background-color: black;
+    color: #efefef;
+}
+
+.list-item {
+    font-family: 'Courier New', Courier, monospace;
+    color: #00c3ff;
+}
