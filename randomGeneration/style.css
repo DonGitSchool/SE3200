@@ -1,13 +1,36 @@
 body {
-    background-color: #1e1e1e;
+    background-color: #161616;
     color: #fff;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Comic Sans MS', Courier, monospace;
+}
+
+header, footer {
+    background-color: #330101;
+    padding: 20px;
+    text-align: center;
+    color: #ff9800;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #ff9800;
+    text-decoration: none;
 }
 
 h2 {
     text-align: center;
     color: #ff9800;
 }
+
 #input-name {
     display: block;
     width: 200px;
@@ -28,7 +51,7 @@ h2 {
     border: 1px solid #ff9800;
     margin-bottom: 10px;
     text-align: center;
-    background-color: #424242;
+    background-color: #330101;
 }
 
 button {
@@ -44,5 +67,5 @@ button {
 }
 
 button:hover {
-    background-color: #ffa726;
+    background-color: #c46a03;
 }
