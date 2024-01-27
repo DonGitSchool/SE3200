@@ -1,0 +1,48 @@
+body {
+    background-color: #1e1e1e;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h2 {
+    text-align: center;
+    color: #ff9800;
+}
+#input-name {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+}
+
+#games-lists {
+    padding: 20px;
+    margin: 0 auto;
+    width: 50%;
+    list-style-type: none;
+}
+
+#games-lists li {
+    padding: 10px;
+    border: 1px solid #ff9800;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #424242;
+}
+
+button {
+    display: block;
+    width: 200px;
+    height: 50px;
+    margin: 20px auto;
+    background-color: #ff9800;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffa726;
+}
