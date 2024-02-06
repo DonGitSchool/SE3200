@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 ROLLERCOASTERS = "Test"
 
-@app.route("/rollercoasters")
+@app.route("/rollercoasters")#, methods["POST"]
 def retreive_coasters_collection():
     return ROLLERCOASTERS
 
