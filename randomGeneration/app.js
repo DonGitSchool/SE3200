@@ -1,5 +1,5 @@
 console.log("connected");
-//For myself:   JSONBIN API: https://jsonbin.io/api-reference/bins/get-started, Arrow Func: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions 
+//For myself:   JSONBIN API: https://jsonbin.io/api-reference/bins/get-started, Arrow Func: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 //add my game list and my JsonBinApiKey
 var gamesList = document.getElementById("games-lists");
 var jsonBinApiKey =
