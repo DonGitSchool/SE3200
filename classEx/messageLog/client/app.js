@@ -1,5 +1,5 @@
 console.log("connected");
-
+//Working as of Feb18
 function generateReviewElements(coasterName){
     var coasterReviewsWrapper = document.querySelector("#reviews-section");
     var coasterReview = document.createElement("h3");
