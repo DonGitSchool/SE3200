@@ -62,34 +62,26 @@ menuAdd.onclick = function() {
 
 menuRemove.onclick = function() {
     addItemButton.textContent = 'Remove Item';
-    // Update addItemButton.onclick function as needed
+    addItemButton.onclick = removeItemFromInv;
 };
+function removeItemFromInv(){
+    var inputItem = document.getElementById("input-item");
+    var data = "name=" + encodeURIComponent(inputItem.value);
+    console.log("data to be sent to server", data);
 
-
-var selectedItem = document.getElementById('selected-item');
-
-menuRemove.onclick = function() {
-    addItemButton.textContent = 'Remove Item';
-    addItemButton.onclick = removeLastItemFromInventory;
-};
-
-function removeLastItemFromInventory() {
-    // Get the inventory items
-    var inventoryItems = document.querySelectorAll('#inventory-section p');
-
-    // Check if there are any items in the inventory
-    if (inventoryItems.length > 0) {
-        // Get the last item
-        var lastItem = inventoryItems[inventoryItems.length - 1];
-
-        // Remove the last item from the inventory
-        lastItem.parentNode.removeChild(lastItem);
-
-        // Update the selected item text
-        selectedItem.textContent = 'Removed: ' + lastItem.textContent;
-    } else {
-        // Update the selected item text
-        selectedItem.textContent = 'No items to remove';
-    }
+    fetch("http://localhost:8080/rollercoasters",{
+        method: "DELETE",
+        body: data,
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
+    }).then(function(response){
+        console.log("New Item Created", response);
+        var inventoryWrapper = document.querySelector("#inventory-section");
+        inventoryWrapper.innerHTML = "";
+        loadInventoryFromServer();
+    });
 }
+
+
 loadInventoryFromServer();

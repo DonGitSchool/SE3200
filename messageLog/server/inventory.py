@@ -17,3 +17,9 @@ class Inventory:
     def readAllItems(self):
         with open(self.filename, 'r') as f:
             return json.load(f)
+        
+    def removeItem(self, item):
+        all = self.readAllItems()
+        all.remove(item)
+        with open(self.filename, 'w') as f:
+            json.dump(all, f)
