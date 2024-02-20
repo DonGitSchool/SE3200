@@ -14,12 +14,13 @@ menuToggle.onclick = function() {
 function generateInventoryElement(item, index){
     var inventoryWrapper = document.querySelector("#inventory-section");
     var inventoryElement = document.createElement("p");
-    inventoryElement.innerHTML = item;
+    inventoryElement.innerHTML = "Name: " + item.name + ", Number: " + item.number;
     inventoryElement.id = "item-" + index; // Add an id to the element
     inventoryWrapper.appendChild(inventoryElement);
     var horozontalRow = document.createElement ("hr");
     inventoryWrapper.appendChild(horozontalRow);
 }
+
 function loadInventoryFromServer(){
     fetch("http://localhost:8080/items")
         .then(function(response){
@@ -32,10 +33,10 @@ function loadInventoryFromServer(){
         });
 }
 
-
 function createNewItemOnServer(){
     var inputItem = document.getElementById("input-item");
-    var data = "name=" + encodeURIComponent(inputItem.value);
+    var inputNumber = document.getElementById("input-number");
+    var data = "name=" + encodeURIComponent(inputItem.value) + "&number=" + encodeURIComponent(inputNumber.value);
     console.log("data to be sent to server", data);
 
     fetch("http://localhost:8080/items",{
@@ -51,7 +52,6 @@ function createNewItemOnServer(){
         loadInventoryFromServer();
     });
 }
-
 var addItemButton = document.getElementById("add-item-button");
 addItemButton.onclick = createNewItemOnServer;
 

@@ -15,7 +15,8 @@ def retrieve_items_collection():
 @app.route("/items", methods=["POST"])
 def create_in_items_collection():
     print("The request data is: ", request.form)
-    inventory.saveItem(request.form["name"])
+    item = {"name": request.form["name"], "number": request.form["number"]}
+    inventory.saveItem(item)
     return "created", 201, {"Access-Control-Allow-Origin":"*"}
 
 @app.route("/items", methods=["DELETE"])
