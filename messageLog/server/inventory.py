@@ -18,8 +18,8 @@ class Inventory:
         with open(self.filename, 'r') as f:
             return json.load(f)
         
-    def removeItem(self, item):
+    def removeItem(self, item_name):
         all = self.readAllItems()
-        all.remove(item)
+        all = [item for item in all if item['name'] != item_name]
         with open(self.filename, 'w') as f:
             json.dump(all, f)
