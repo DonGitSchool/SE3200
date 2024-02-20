@@ -21,7 +21,7 @@ function generateInventoryElement(item, index){
     inventoryWrapper.appendChild(horozontalRow);
 }
 function loadInventoryFromServer(){
-    fetch("http://localhost:8080/rollercoasters")
+    fetch("http://localhost:8080/items")
         .then(function(response){
             return response.json();
         })
@@ -38,7 +38,7 @@ function createNewItemOnServer(){
     var data = "name=" + encodeURIComponent(inputItem.value);
     console.log("data to be sent to server", data);
 
-    fetch("http://localhost:8080/rollercoasters",{
+    fetch("http://localhost:8080/items",{
         method: "POST",
         body: data,
         headers: {
@@ -70,7 +70,7 @@ function removeItemFromInv(){
     var itemName = encodeURIComponent(inputItem.value);
     console.log("Item to be deleted:", itemName);
 
-    fetch("http://localhost:8080/rollercoasters?name=" + itemName, {
+    fetch("http://localhost:8080/items?name=" + itemName, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"

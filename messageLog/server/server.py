@@ -7,19 +7,19 @@ CORS(app)
 inventory = Inventory("inventory.db")
 print(inventory.readAllItems())
 
-@app.route("/rollercoasters", methods=["GET"])
-def retrieve_coasters_collection():
-    rollercoasters = inventory.readAllItems()
-    return jsonify(rollercoasters), 200, {"Access-Control-Allow-Origin": "*"}
+@app.route("/items", methods=["GET"])
+def retrieve_items_collection():
+    items = inventory.readAllItems()
+    return jsonify(items), 200, {"Access-Control-Allow-Origin": "*"}
 
-@app.route("/rollercoasters", methods=["POST"])
-def create_in_coasters_collection():
+@app.route("/items", methods=["POST"])
+def create_in_items_collection():
     print("The request data is: ", request.form)
     inventory.saveItem(request.form["name"])
     return "created", 201, {"Access-Control-Allow-Origin":"*"}
 
-@app.route("/rollercoasters", methods=["DELETE"])
-def remove_from_coasters_collection():
+@app.route("/items", methods=["DELETE"])
+def remove_from_items_collection():
     item_name = request.args.get('name')
     print("The request data is: ", item_name)
     inventory.removeItem(item_name)
