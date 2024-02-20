@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 from inventory import Inventory
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 inventory = Inventory("inventory.db")
 print(inventory.readAllItems())
 
@@ -18,8 +20,9 @@ def create_in_coasters_collection():
 
 @app.route("/rollercoasters", methods=["DELETE"])
 def remove_from_coasters_collection():
-    print("The request data is: ", request.form)
-    inventory.removeItem(request.form["name"])
+    item_name = request.args.get('name')
+    print("The request data is: ", item_name)
+    inventory.removeItem(item_name)
     return "removed", 201, {"Access-Control-Allow-Origin":"*"}
 
 @app.route('/', defaults={'path': ''})
