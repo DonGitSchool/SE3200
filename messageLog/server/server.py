@@ -24,7 +24,7 @@ def remove_from_items_collection():
     item_name = request.args.get('name')
     print("The request data is: ", item_name)
     inventory.removeItem(item_name)
-    return "removed", 201, {"Access-Control-Allow-Origin":"*"}
+    return "removed", 202, {"Access-Control-Allow-Origin":"*"}
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
