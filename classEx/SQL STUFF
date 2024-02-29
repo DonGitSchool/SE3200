@@ -1,0 +1,2 @@
+CREATE TABLE rollercoasters (id INTEGER PRIMARY KEY, name TEXT, review TEXT, rating INTEGER);
+INSERT INTO rollercoasters (name, review, rating) VALUES ("Tatsu","BEST Flying Coaster",9);
