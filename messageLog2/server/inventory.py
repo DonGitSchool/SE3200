@@ -1,5 +1,5 @@
 import sqlite3
-
+#CHECKED
 # Could use the rows function instead but she wants this
 def dict_factory(cursor, row):
     fields = []
@@ -9,7 +9,7 @@ def dict_factory(cursor, row):
     for i in range(len(fields)):
         result_dict[fields[i]] = row[i]
     return result_dict
-
+#CREATE TABLE items (itemid INTEGER PRIMARY KEY, name TEXT, brand TEXT, invid TEXT, color TEXT, type TEXT, quantity INTEGER);
 class InventoryDB:
     def __init__(self, filename):
         self.connection = sqlite3.connect(filename)
@@ -17,17 +17,17 @@ class InventoryDB:
         self.cursor = self.connection.cursor()
 
     def getInventory(self):
-        self.cursor.execute("SELECT * FROM inventory")
+        self.cursor.execute("SELECT * FROM items")
         inventory = self.cursor.fetchall()
         return inventory
     
     def getItem(self, item_id):
-        self.cursor.execute("SELECT * FROM inventory WHERE id = ?", (item_id,))
+        self.cursor.execute("SELECT * FROM items WHERE id = ?", (item_id))
         item = self.cursor.fetchone()
         return item
 
-    def createItem(self, name, quantity, price):
-        self.cursor.execute("INSERT INTO inventory (name, quantity, price) VALUES (?,?,?)",(name, quantity, price))
+    def createItem(self, name, brand, invId, color, type, quantity):
+        self.cursor.execute("INSERT INTO items(name, brand, invid, color, type, quantity) VALUES (?,?,?,?,?)",(name, brand, invId, color, type, quantity))
         self.connection.commit()
 
     def close(self):
