@@ -1,9 +1,9 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request,jsonify
 from rollercoasters import RolllerCoastersDB
 
 app = Flask(__name__)
 db = RolllerCoastersDB("rollercoasters.db")
-print(db.getRollerCoasters())
+
 
 @app.route("/rollercoasters", methods=["GET"])
 def retreive_coasters_collection():
@@ -11,6 +11,16 @@ def retreive_coasters_collection():
     #load from db
     rollercoasters= db.getRollerCoasters()
     return jsonify(rollercoasters), 200, {"Access-Control-Allow-Origin": "*"}
+
+@app.route("/rollercoasters/<int:coaster_id>", methods=["GET"])
+def retreive_coaster_member(coaster_id):
+    db = RolllerCoastersDB("rollercoasters.db")
+    #load from db
+    rollercoaster= db.getRollerCoaster(coaster_id)
+    if rollercoaster:
+        return rollercoaster, 200, {"Access-Control-Allow-Origin": "*"}
+    else:
+        return "Rollercoaster Not Found", 404, {"Access-Control-Allow-Origin": "*"}
 
 @app.route("/rollercoasters", methods=["POST"])
 def create_in_coasters_collection():
