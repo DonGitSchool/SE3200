@@ -22,14 +22,25 @@ class RolllerCoastersDB:
     
     def getRollerCoaster(self, coaster_id):
         data= []
-        self.cursor.execute("SELECT * FROM rollercoasters WHERE id = ?", (coaster_id,))
+        self.cursor.execute("SELECT * FROM rollercoasters WHERE id = ?", (coaster_id))
         rollercoaster = self.cursor.fetchone()
         return rollercoaster
-
-    def createRollerCoasters(self, name, review, rating):
+    #renamed this mar 7
+    def createRollerCoaster(self, name, review, rating):
         self.cursor.execute("INSERT INTO rollercoasters (name,review,rating) VALUES (?,?,?)",(name,review,rating))
         self.connection.commit()
-
+    
+    #added mar 7 new stuff
+    def deleteRollerCoaster(self, coaster_id):
+        data = {coaster_id}
+        self.cursor.execute("DELETE FROM rollercoasters WHERE id = ?", coaster_id)
+        self.connection.commit()
+        
+    # UPDATE rollercoasters set name =?, review = ?, rating = ? WHERE id = ?
+    def editRollerCoaster(self, coaster_id, name, review, rating):
+        self.cursor.execute("UPDATE rollercoasters SET name = ?, review = ?, rating = ? WHERE id = ?", (name, review, rating, coaster_id))
+        self.connection.commit()
+        
     def close(self):
         self.connection.close()
         

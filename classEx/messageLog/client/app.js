@@ -30,7 +30,7 @@ function generateReviewElements(coasterData){
     deleteButton.onclick = function(){
         // This will need the rollercoasters ID to edit the item
         console.log("Delete the id: ", coasterData.id);
-        editRollercoasterFromServer(coasterData.id);
+        deleteRollercoasterFromServer(coasterData.id);
     }
 
     //add the buttons
@@ -43,8 +43,20 @@ function generateReviewElements(coasterData){
 function editRollercoasterFromServer(coaster_id){
     console.log("Editing rollercoaster with id: ", coaster_id);
 }
+
+//added mar 7 new stuff in progress
 function deleteRollercoasterFromServer(coaster_id){
-    console.log("Deleting rollercoaster with id: ", coaster_id);
+    var confirmDelete = confirm("Are you sure you want to delete this coaster?");
+    if (confirmDelete) {
+        fetch("http://localhost:8080/rollercoasters/" + coaster_id, {
+            method: "DELETE"
+        }).then(function(response){
+            console.log("Rollercoaster Deleted", response);
+            var coasterReviewsWrapper = document.querySelector("#reviews-section");
+            coasterReviewsWrapper.innerHTML = "";
+            loadReviewsFromServer();
+        });
+    }
 }
 
 function loadReviewsFromServer(){
@@ -84,5 +96,7 @@ function createNewReviewOnServer(){
 
 var addReviewButton = document.getElementById("add-review-button");
 addReviewButton.onclick = createNewReviewOnServer;
+
+
 
 loadReviewsFromServer();
