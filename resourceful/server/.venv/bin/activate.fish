@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/donavan/SchoolGit/SE3200/messageLog/.venv"
+set -gx VIRTUAL_ENV "/home/zorran/Git/SE3200/resourceful/server/.venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

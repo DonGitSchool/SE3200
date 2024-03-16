@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/donavan/SchoolGit/SE3200/messageLog/.venv"
+VIRTUAL_ENV="/home/zorran/Git/SE3200/resourceful/server/.venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
