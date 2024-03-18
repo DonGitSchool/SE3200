@@ -13,7 +13,7 @@ This is an inventory system Donavan will use that allows you to manage items. Ea
 
 The SQLite database schema for the inventory system is as follows:
 
-'''sql
+```sql
 CREATE TABLE items (
     itemid INTEGER PRIMARY KEY, 
     name TEXT, 
@@ -23,8 +23,6 @@ CREATE TABLE items (
     type TEXT, 
     quantity INTEGER
 );
-
-
 
 REST Endpoints
 The API server implements the following REST endpoints:
