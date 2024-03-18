@@ -24,21 +24,4 @@ CREATE TABLE items (
     quantity INTEGER
 );
 
-REST Endpoints
-The API server implements the following REST endpoints:
-
-Get All Items
-  Method: GET
-  Path: /items
-Get Single Item
-  Method: GET
-  Path: /items/<int:item_id>
-Create Item
-  Method: POST
-  Path: /items
-Delete Item
-  Method: DELETE
-  Path: /items/<int:item_id>
-Update Item
-  Method: PUT
-  Path: /items/<int:item_id>
+``` **REST Endpoints:** | Endpoint | Method | Path | | --- | --- | --- | | Get All Items | GET | /items | | Get Single Item | GET | /items/<int:item_id> | | Create Item | POST | /items | | Delete Item | DELETE | /items/<int:item_id> | | Update Item | PUT | /items/<int:item_id> |
