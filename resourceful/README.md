@@ -4,7 +4,8 @@ This is an inventory system Donavan will use that allows you to manage items. Ea
 
 ## Resource
 
-### Items
+**Items**
+
 Attributes:
 - `name` (String): The name of the item.
 - `brand` (String): The brand of the item.
