@@ -111,7 +111,6 @@ function createNewItemOnServer(){
     var inputItemColor = document.getElementById("input-item-color");
     var inputItemType = document.getElementById("input-item-type");
     var inputItemQuantity = document.getElementById("input-item-quantity");
-        
     var data = "name=" + encodeURIComponent(inputItemName.value);
     data += "&brand=" + encodeURIComponent(inputItemBrand.value);
     data += "&invid=" + encodeURIComponent(inputItemInvid.value);
@@ -134,6 +133,19 @@ function createNewItemOnServer(){
     });
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    var toggleButton = document.getElementById('toggle-input-button');
+    var inputFields = document.querySelectorAll('#input-item-name, #input-item-brand, #input-item-invid, #input-item-color, #input-item-type, #input-item-quantity, #add-item-button');
+    var showInputs = true;
+
+    toggleButton.addEventListener('click', function() {
+        showInputs = !showInputs;
+        for (var i = 0; i < inputFields.length; i++) {
+            inputFields[i].style.display = showInputs ? 'block' : 'none';
+        }
+        toggleButton.textContent = showInputs ? 'Hide Input Boxes' : 'Show Input Boxes';
+    });
+});
 
 var addItemButton = document.getElementById("add-item-button");
 addItemButton.onclick = createNewItemOnServer;
